@@ -1,19 +1,18 @@
-const inputEl = document.querySelector('#validation-input')
+const inputRef = document.querySelector('#validation-input')
 
-inputEl.addEventListener('blur', inputValidation)
+const valueDataAtribute = inputRef.dataset.length;
 
-function inputValidation() {
-  if (
-    event.currentTarget.getAttribute('data-length') <=
-    event.currentTarget.value.length
-  ) {
-    changeClass('invalid', 'valid')
-  } else {
-    changeClass('valid', 'invalid')
-  }
-}
 
-function changeClass(inv, val) {
-  event.currentTarget.classList.remove(inv)
-  event.currentTarget.classList.add(val)
-}
+inputRef.addEventListener('blur', (event) => {
+    if (event.currentTarget.value.length >= valueDataAtribute) {
+       examination('invalid', 'valid')
+    }
+    else {
+        examination('valid', 'invalid')
+    }
+});
+
+function examination(a, b) {
+    event.currentTarget.classList.remove(a)
+    event.currentTarget.classList.add(b)
+};  

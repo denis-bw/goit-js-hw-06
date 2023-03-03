@@ -1,8 +1,13 @@
-const fontSizeControl = document.querySelector('#font-size-control');
-const textEl = document.querySelector('#text');
 
-fontSizeControl.addEventListener("input", onMouseValue);
+const inputRef = document.querySelector('#font-size-control');
+const spanRef = document.querySelector('#text');
 
-function onMouseValue(event) {
-    textEl.style.fontSize = event.currentTarget.value + "px";
-}
+
+
+inputRef.addEventListener('input', (e) => {
+    spanRef.style.fontSize = `${e.currentTarget.value}px`;
+});
+
+
+
+
